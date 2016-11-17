@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XamarinFormsFacebook" x:Class="XamarinFormsFacebook.XamarinFormsFacebookPage">
+	<ScrollView>
+		<StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+			<Image HeightRequest="200" WidthRequest="200" x:Name="_userImage" />
+			<Label x:Name="_lblId" Text="Id:" />
+			<Label x:Name="_lblToken" Text="Token:" />
+			<Label x:Name="_lblFirstName" Text="FirstName:" />
+			<Label x:Name="_lblLastName" Text="LastName:" />
+			<Label x:Name="_lblEmail" Text="Email:" />
+			<local:FacebookLoginButton ReadPermissions="{x:Static local:Settings.ReadPermissions}" PublishPermissions="{x:Static local:Settings.PublishPermissions}" ShowingLoggedInUser="Handle_ShowingLoggedInUser" ShowingLoggedOutUser="Handle_ShowingLoggedOutUser" />
+		</StackLayout>
+	</ScrollView>
+</ContentPage>
