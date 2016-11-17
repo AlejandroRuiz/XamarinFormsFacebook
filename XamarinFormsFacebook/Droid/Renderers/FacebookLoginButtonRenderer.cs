@@ -13,14 +13,10 @@ namespace XamarinFormsFacebook.Droid
 {
 	public class FacebookLoginButtonRenderer : ViewRenderer<FacebookLoginButton, LoginButton>, IFacebookCallback
 	{
-		public static ICallbackManager CallbackManager { get; private set; }
+		
 
 		public FacebookLoginButtonRenderer()
 		{
-			if (CallbackManager == null)
-			{
-				CallbackManager = CallbackManagerFactory.Create();
-			}
 		}
 
 		class CustomAccessTokenTracker : AccessTokenTracker
@@ -101,8 +97,8 @@ namespace XamarinFormsFacebook.Droid
 			}
 
 			var control = new LoginButton(base.Context);
-			control.RegisterCallback(CallbackManager, this);
-			LoginManager.Instance.RegisterCallback(CallbackManager, this);
+			control.RegisterCallback(MainActivity.CallbackManager, this);
+			LoginManager.Instance.RegisterCallback(MainActivity.CallbackManager, this);
 
 			fbTracker = new CustomAccessTokenTracker(base.Element)
 			{

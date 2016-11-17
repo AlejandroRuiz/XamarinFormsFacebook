@@ -4,6 +4,7 @@ using System.Linq;
 using Facebook.CoreKit;
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace XamarinFormsFacebook.iOS
 {
@@ -13,6 +14,8 @@ namespace XamarinFormsFacebook.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+
+			DependencyService.Register<IFacebookManager, iOS_FacebookManager>();
 
 			LoadApplication(new App());
 

@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XamarinFormsFacebook" x:Class="XamarinFormsFacebook.XamarinFormsFacebookPage">
 	<ScrollView>
-		<StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
-			<Image HeightRequest="200" WidthRequest="200" x:Name="_userImage" />
+		<StackLayout Padding="20" VerticalOptions="Center" HorizontalOptions="Center" >
+			<local:FacebookLoginButton x:Name="_fbButton" ReadPermissions="{x:Static local:Settings.ReadPermissions}" PublishPermissions="{x:Static local:Settings.PublishPermissions}" ShowingLoggedInUser="Handle_ShowingLoggedInUser" ShowingLoggedOutUser="Handle_ShowingLoggedOutUser" />
+			<Button Clicked="Handle_Clicked_LogOut_FB_Button" Text="Log Out Facebook Button"  />
+			<Button Clicked="Handle_Clicked_LogIn_CustomS_Button" Text="Log In Custom Button Simple" />
+			<Button Clicked="Handle_Clicked_LogIn_CustomD_Button" Text="Log In Custom Button With Data" />
+			<Button Clicked="Handle_Clicked_LogOut_Custom_Button" Text="Log Out Custom Button" />
+			<Image HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" x:Name="_userImage" />
 			<Label x:Name="_lblId" Text="Id:" />
 			<Label x:Name="_lblToken" Text="Token:" />
 			<Label x:Name="_lblFirstName" Text="FirstName:" />
 			<Label x:Name="_lblLastName" Text="LastName:" />
 			<Label x:Name="_lblEmail" Text="Email:" />
-			<local:FacebookLoginButton ReadPermissions="{x:Static local:Settings.ReadPermissions}" PublishPermissions="{x:Static local:Settings.PublishPermissions}" ShowingLoggedInUser="Handle_ShowingLoggedInUser" ShowingLoggedOutUser="Handle_ShowingLoggedOutUser" />
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Entry x:Name="_txtMessage" Grid.Column="0" Placeholder="Your Message" />
+				<Button Clicked="Handle_Clicked_Post_Message" Grid.Column="1" Text="Post Message" />
+			</Grid>
+			<Button Clicked="Handle_Clicked_Post_Image" Text="Select Photo and Publish" />
 		</StackLayout>
 	</ScrollView>
 </ContentPage>

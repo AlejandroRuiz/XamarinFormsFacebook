@@ -6,7 +6,7 @@ namespace XamarinFormsFacebook
 {
 	public interface IFacebookManager
 	{
-		Task SimpleLogin();
+		Task<bool> SimpleLogin();
 		Task<FacebookUser> Login();
 		Task LogOut();
 		Task<bool> ValidateToken();
